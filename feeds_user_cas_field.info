@@ -1,0 +1,8 @@
+name = Feeds - User CAS Field
+core = 7.x
+package = Feeds
+version = 7.x-1.0
+project = feeds_user_cas_field
+dependencies[] = ctools
+dependencies[] = feeds
+dependencies[] = cas

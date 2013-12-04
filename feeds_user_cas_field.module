@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * Code for the User Importer with CAS feature.
+ */
+
+function feeds_user_cas_field_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
+  if ($entity_type == 'user') {
+    $targets['cas_name'] = array(
+      'name' => t('CAS User name'),
+      'description' => t('A custom field to import user names into CAS.'),
+      'callback' => 'user_importer_with_cas_set_target', // See 2)
+    );
+  }
+}
+ 
+/**
+ * Set the user profile target after import.
+ */
+function feeds_user_cas_field_feeds_set_target($source, $entity, $target, $value, $mapping) {
+  $entity->$target = $value;
+}
+
+?>
